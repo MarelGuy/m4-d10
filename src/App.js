@@ -1,10 +1,10 @@
 import './App.css';
 import Sidebar from './Components/Sidebar/Sidebar';
-import Home from './Pages/Homepage'
-import Artistpage from './Pages/Artistpage'
-import './Pages/Albumpage'
+import Home from './Pages/Home/Homepage'
+import Artistpage from './Pages/Artist-page/Artistpage'
+import Footer from './Components/Footer/Footer'
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
-import Albumpage from './Pages/Albumpage';
+import Albumpage from './Pages/Album-page/Albumpage';
 
 function App() {
 
@@ -25,6 +25,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
+      <Footer />
     </div>
   );
 }
