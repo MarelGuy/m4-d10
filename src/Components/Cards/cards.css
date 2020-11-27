@@ -1,0 +1,11 @@
+.card-body-custom{
+    max-width: 15vw !important;
+    max-height: 25vw !important;
+    background-color:transparent;
+    border: none !important;
+    color: rgb(221, 221, 221) !important;
+}
+
+.margins{
+    margin-top: -10px;
+}

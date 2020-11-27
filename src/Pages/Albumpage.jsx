@@ -1,11 +1,11 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 
-function Artistpage() {
+function Albumpage() {
 
     return (
         <></>
     )
 }
 
-export default withRouter(Artistpage)
+export default withRouter(Albumpage)
