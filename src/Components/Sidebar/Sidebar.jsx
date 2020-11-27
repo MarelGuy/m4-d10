@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Nav } from 'react-bootstrap'
+import { Button, Nav, Image } from 'react-bootstrap'
 import "./sidebar.css"
 
 export default function Sidebar() {
@@ -11,7 +11,8 @@ export default function Sidebar() {
             <Nav className="flex-column d-none d-md-block" id="side-bar">
                 <Nav.Item>
                     <Nav.Link>
-                        <img className="title img-fluid" src="../../assets/spotify_logo_white.png" alt="spotify logo" /></Nav.Link>
+                        <Image src="https://i.ibb.co/hCMKPnL/spotify-logo-white.png" alt="spotify logo" fluid width="200vw" />
+                    </Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
                     <Nav.Link><svg width="1.5em" height="2em" viewBox="0 0 16 16" className="bi bi-house-door mr-3 ml-1" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
