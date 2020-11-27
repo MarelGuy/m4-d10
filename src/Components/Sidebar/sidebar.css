@@ -1,0 +1,7 @@
+#side-bar{
+    background-color: black;
+    color: white !important;
+    position: fixed;
+
+    height: 100%;
+}
