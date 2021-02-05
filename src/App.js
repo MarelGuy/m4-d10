@@ -1,7 +1,6 @@
 import './App.css';
 import Sidebar from './Components/Sidebar/Sidebar';
 import Home from './Pages/Home/Homepage'
-import Artistpage from './Pages/Artist-page/Artistpage'
 import Footer from './Components/Footer/Footer'
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import Albumpage from './Pages/Album-page/Albumpage';
@@ -14,9 +13,6 @@ function App() {
       <Sidebar />
       <Router>
         <Switch>
-          <Route exact path="/artist-page">
-            <Artistpage />
-          </Route>
           <Route exact path="/album-page">
             <Albumpage />
           </Route>
