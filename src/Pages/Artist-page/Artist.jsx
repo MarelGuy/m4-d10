@@ -8,15 +8,17 @@ import {AiOutlineHeart,AiFillHeart} from 'react-icons/ai'
 
 const mapStateToProps = state =>state
 const mapDispatchToProps = dispatch=>({
-    addLike:()=>
+    addLike:(body)=>
     dispatch({
       type:"ADD_LIKE",
+      payload:body,
       
     }
     ),
-    removeLike:()=>
+    removeLike:(body)=>
     dispatch({
       type:"REMOVE_LIKE",
+      payload:body,
       
     }
     ),
@@ -52,7 +54,8 @@ const mapDispatchToProps = dispatch=>({
 class Artist extends React.Component{
     state={
         albums:[],
-        songs:[]
+        songs:[],
+        fav:[]
     }
    
     componentDidMount =async ()=>{
@@ -67,12 +70,26 @@ class Artist extends React.Component{
             console.log(error);
           }
     }
+    // componentDidUpdate = (prevProps)=>{
+    //     if(prevProps.like.len !== this.props.like.length)
+    // }
     render(){
-        console.log(this.props.artists)
-        const song = {...this.props.artists.data };
-        const fav = this.props.like.find(
-          (artist) => artist.id === this.props.artist.data.id
-        );
+        console.log(this.props.artists && this.props.artists.data)
+        
+        // if(this.props.mylikes){
+        //     let fav = this.props.mylikes.like.find(
+        //         (artist) => artist.title === this.props.artist.data.title
+        //       );
+        //     //   const song = {...this.props.artists.data };
+             
+        //        this.setState({fav})
+        // }
+       
+        
+        
+       
+        // const song = {...this.props.artists.data };
+        // console.log(song)
       
         return(
             <>
@@ -107,15 +124,15 @@ class Artist extends React.Component{
 
                 this.props.artists.data.slice(0,8).map((songs,i)=>{
                     return <ListGroup.Item className="list-color " key={i}>
-                       <img src={`https://e-cdns-images.dzcdn.net/images/cover/${songs.md5_image}/56x56-000000-80-0-0.jpg`} alt="img" /> <span className="ml-2">{i+1}</span ><span className="ml-3 " >  {!fav ? (
+                       <img src={`https://e-cdns-images.dzcdn.net/images/cover/${songs.md5_image}/56x56-000000-80-0-0.jpg`} alt="img" /> <span className="ml-2">{i+1}</span ><span className="ml-3 " >  {this.props ? (
                 <i
                   className="far fa-heart fa-2x mr-2  text-warning"
-                  onClick={() => this.props.addLike(song)}
+                  onClick={() => this.props.addLike(songs)}
                 ></i>
               ) : (
                 <i
                   className="fas fa-heart fa-2x mr-2 text-warning"
-                  onClick={() => this.props.removeLike(song)}
+                  onClick={() => this.props.removeLike(songs)}
                 ></i>
               )}</span> <span className="ml-18">{songs.title}</span> 
                     </ListGroup.Item>
