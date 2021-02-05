@@ -12,7 +12,7 @@ function Homepage() {
         <>
             <Container id="home">
                 <Navbar />
-                <Cards id="card1" />
+                <Cards/>
             </Container>
         </>
     )
