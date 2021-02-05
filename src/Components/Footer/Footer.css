@@ -1,0 +1,13 @@
+.rhap_container{
+    background-color:rgb(50,50,50);
+    position:fixed;
+    bottom: 0;
+    color:white;
+}
+.rhap_time{
+    color: white;
+}
+.rhap_stacked-reverse .rhap_controls-section{
+    margin-bottom: 0;
+    height: 25px;
+}
