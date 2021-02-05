@@ -10,10 +10,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function Homepage() {
     return (
         <>
-            <Container id="home">
-                <Navbar />
-                <Cards id="card1" />
-            </Container>
+            <Navbar />
+            <Cards id="card1" />
         </>
     )
 }
