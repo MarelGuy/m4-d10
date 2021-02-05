@@ -14,7 +14,6 @@ class Albumpage extends Component {
         this.fetchAlbum(albumId)
     }
     fetchAlbum = async (albumId) => {
-
         await fetch(`https://deezerdevs-deezer.p.rapidapi.com/album/${albumId}`, {
             "method": "GET",
             "headers": {
@@ -30,7 +29,6 @@ class Albumpage extends Component {
             });
     }
     render() {
-        console.log(this.state.album)
         return (
             <Row>
                 <Col>
@@ -38,7 +36,7 @@ class Albumpage extends Component {
                     {/* <h3>Artist: {this.state.album.artist.name}</h3> */}
                     <h6>Track List:</h6>
                     <ul>
-                        {/* {this.state.album.tracks.data[0] ? (this.state.album.tracks.data.map(track => <li>{track.title}</li>)) : (<h4>its not working</h4>)} */}
+                        {this.state.album.tracks ? (this.state.album.tracks.data.map(track => <li>{track.title}</li>)) : (<h4>its not working</h4>)}
                     </ul>
                 </Col>
             </Row>
