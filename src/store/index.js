@@ -5,7 +5,7 @@ import likesReducer from '../reducers/likes'
 import thunk from 'redux-thunk'
 
 const composedEnhacer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
-// const mainReducer = combineReducers({artist:artistReducer,likes:likesReducer})
+
 const initialState = {
     songs:{
         artists:[],
@@ -15,10 +15,11 @@ const initialState = {
         like:[],
     }
 }
+const mainReducer = combineReducers({songs:artistReducer,mylikes:likesReducer})
 
 export default function configureStore(){
     return createStore(
-        artistReducer,
+        mainReducer,
         initialState,
         composedEnhacer(applyMiddleware(thunk))
     )

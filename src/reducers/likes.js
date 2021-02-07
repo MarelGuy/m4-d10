@@ -8,12 +8,7 @@ export default function(state={},action){
             case "REMOVE_LIKE":
                 return{
                     ...state,
-                    like:[
-                        ...state.like.filter(
-                            (li)=> li.id !==action.payload
-                           
-                        )
-                    ]
+                    like:[...state.like.filter((li)=> li.id !==action.payload.id )]
                 }
               
             default:

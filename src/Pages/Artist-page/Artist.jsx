@@ -37,7 +37,7 @@ const mapDispatchToProps = dispatch=>({
             if(res.ok){
                 dispatch({
                     type:"GET_ARTIST_DATA",
-                    payload:data,
+                    payload:data.data,
                 })
             }else{
                 dispatch({
@@ -74,32 +74,28 @@ class Artist extends React.Component{
     //     if(prevProps.like.len !== this.props.like.length)
     // }
     render(){
-        console.log(this.props.artists && this.props.artists.data)
-        
-        // if(this.props.mylikes){
-        //     let fav = this.props.mylikes.like.find(
-        //         (artist) => artist.title === this.props.artist.data.title
+        // console.log(this.props.songs.artists)
+        // let fav = []
+        // if(this.props.mylikes.like){
+        //      fav = this.props.mylikes.like.find(
+        //         (artist) => parseInt(artist.id) === parseInt(this.props.songs.artists.map((myId)=>myId.id))
         //       );
-        //     //   const song = {...this.props.artists.data };
-             
-        //        this.setState({fav})
+        //       console.log(fav)
         // }
-       
-        
-        
-       
-        // const song = {...this.props.artists.data };
-        // console.log(song)
+        //    let enith = this.props.mylikes.like.find(
+        //     (artist) => parseInt(artist.id)  === 1109731  );
+        // console.log(enith)
+      
       
         return(
             <>
-          {this.props.artists ? (
+          {this.props.songs.artists ? (
               <>
             <div className="main-artist">
 
             <div className="shade" >
             {/* <img src="https://e-cdns-images.dzcdn.net/images/artist/0707267475580b1b82f4da20a1b295c6/1000x1000-000000-80-0-0.jpg" alt="" width="100%" className="img-cover" />   */}
-            <img src= {this.props.artists.data[0].artist.picture_xl} alt ="album" className="img-cover" />
+            <img src= {this.props.songs.artists.picture_xl} alt ="album" className="img-cover" />
                 
             <div className="shadeBg">  </div>
             </div>
@@ -120,21 +116,21 @@ class Artist extends React.Component{
             </div>
             <div className="aside">
             <ListGroup variant="flush" >
-                {this.props.artists ?(
+                {this.props.songs.artists ?(
 
-                this.props.artists.data.slice(0,8).map((songs,i)=>{
+                this.props.songs.artists.slice(0,8).map((song,i)=>{
                     return <ListGroup.Item className="list-color " key={i}>
-                       <img src={`https://e-cdns-images.dzcdn.net/images/cover/${songs.md5_image}/56x56-000000-80-0-0.jpg`} alt="img" /> <span className="ml-2">{i+1}</span ><span className="ml-3 " >  {this.props ? (
+                       <img src={`https://e-cdns-images.dzcdn.net/images/cover/${song.md5_image}/56x56-000000-80-0-0.jpg`} alt="img" /> <span className="ml-2">{i+1}</span ><span className="ml-3 " >  {!this.props.mylikes.like.find((myli)=>parseInt(myli.id)===parseInt(song.id)) ? (
                 <i
                   className="far fa-heart fa-2x mr-2  text-warning"
-                  onClick={() => this.props.addLike(songs)}
+                  onClick={() => this.props.addLike(song)}
                 ></i>
               ) : (
                 <i
                   className="fas fa-heart fa-2x mr-2 text-warning"
-                  onClick={() => this.props.removeLike(songs)}
+                  onClick={() => this.props.removeLike(song)}
                 ></i>
-              )}</span> <span className="ml-18">{songs.title}</span> 
+              )}</span> <span className="ml-18">{song.title}</span> 
                     </ListGroup.Item>
 
                 
